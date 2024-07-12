@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{9103
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAwayNight.Catalog", "Services\Catalog\TakeAwayNight.Catalog\TakeAwayNight.Catalog.csproj", "{481D0E13-734C-409B-AF72-968D93BD447A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{F844167D-DC29-4094-8902-8109BDDABBAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAwayNight.Discount", "Services\Discount\TakeAwayNight.Discount\TakeAwayNight.Discount.csproj", "{B00E2CEB-8493-41F4-BBB6-F33EA3986052}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,10 @@ Global
 		{481D0E13-734C-409B-AF72-968D93BD447A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{481D0E13-734C-409B-AF72-968D93BD447A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{481D0E13-734C-409B-AF72-968D93BD447A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B00E2CEB-8493-41F4-BBB6-F33EA3986052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B00E2CEB-8493-41F4-BBB6-F33EA3986052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B00E2CEB-8493-41F4-BBB6-F33EA3986052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B00E2CEB-8493-41F4-BBB6-F33EA3986052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{91033A3E-1BEF-407E-874C-FC5A0FE59708} = {3E3ACAAC-B653-40D4-87A3-26ACE8FE40FB}
 		{481D0E13-734C-409B-AF72-968D93BD447A} = {91033A3E-1BEF-407E-874C-FC5A0FE59708}
+		{F844167D-DC29-4094-8902-8109BDDABBAF} = {3E3ACAAC-B653-40D4-87A3-26ACE8FE40FB}
+		{B00E2CEB-8493-41F4-BBB6-F33EA3986052} = {F844167D-DC29-4094-8902-8109BDDABBAF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61C83C90-0033-43EE-8678-1A35918165FB}

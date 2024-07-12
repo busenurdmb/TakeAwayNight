@@ -6,7 +6,7 @@ using TakeAwayNight.Catalog.Settings;
 
 namespace TakeAwayNight.Catalog.Services.ProductServices
 {
-    public class ProductServices
+    public class ProductServices:IProductServices
     {
         private readonly IMongoCollection<Product> _ProductCollection;
         private readonly IMapper _mapper;
