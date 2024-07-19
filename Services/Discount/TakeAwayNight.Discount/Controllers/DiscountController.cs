@@ -10,7 +10,11 @@ namespace TakeAwayNight.Discount.Controllers
     public class DiscountController : ControllerBase
     {
         private readonly IDiscountCouponServices _discountCouponServices;
-        
+
+        public DiscountController(IDiscountCouponServices discountCouponServices)
+        {
+            _discountCouponServices = discountCouponServices;
+        }
 
         [HttpGet]
         public async Task<IActionResult> DiscountCouponList()

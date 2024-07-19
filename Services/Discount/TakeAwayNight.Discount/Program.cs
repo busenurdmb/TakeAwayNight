@@ -1,5 +1,10 @@
+using TakeAwayNight.Discount.Context;
+using TakeAwayNight.Discount.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddTransient<DapperContext>();
+builder.Services.AddScoped<IDiscountCouponServices, DiscountCouponServices>();
 // Add services to the container.
 
 builder.Services.AddControllers();
