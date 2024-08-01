@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TakeAwayNight.Catalog.Dtos.ProductDtos;
 using TakeAwayNight.Catalog.Services.ProductServices;
 
 namespace TakeAwayNight.Catalog.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
