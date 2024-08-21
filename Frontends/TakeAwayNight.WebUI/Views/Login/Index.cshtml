@@ -1,0 +1,20 @@
+﻿@model TakeAwayNight.WebUI.Dtos.IdentityDtos.LoginDto
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+<div class="container">
+    <br />
+    <br />
+    <div class="alert alert-success">TakeAway Giriş Paneli</div>
+    <br />
+    <input  type="text" class="form-control" asp-for="Username" placeholder="kulanıcı adınız"/>
+    <br />
+    <input type="text" class="form-control" asp-for="Password" placeholder="Şifreniz" />
+    <br />
+    <button class="btn btn-primary">Giriş Yap</button>
+</div>
