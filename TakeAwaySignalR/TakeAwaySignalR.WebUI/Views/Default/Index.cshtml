@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@* //CORS dışarıdan sunucu üzerinden gelen isteklere izin vermek *@
+@section Scripts{
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <script type="text/javascript">
+                    $(document).ready(() => {
+                        //connect şu adrese istek atıyor
+
+                        var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7247/signalrhub").build();
+                        //connection durumunu yazdırıyorum
+                        $("#constatus").text(connection.state);
+                        //bağlan deyip bir daha yazdırıyorum
+                        //başlangıçta diconnectit olabilirisn bağlandıktan  sonra tekrar yaz hat verirsem o hatayı consolo yazdır
+                        connection.start().then(() => {
+                            $("#constatus").text(connection.state);
+                            setInterval(() => {
+                                connection.invoke("TotalDeliveryCount");
+                                connection.invoke("TotalDeliveryCountStatusYolda");
+                                connection.invoke("TotalDeliveryCountStatusHazirlaniyor");
+                            }, 1000);
+                  
+                        }).catch((err) => { console.log(err) });
+                        connection.on("ReceiveToatalDelieveryCouunt", (values) => {
+                            $("#txttotaldeliverycount").text(values);
+                        });
+                        connection.on("ReceiveTotalDeliveryCountStatusYolda", (values) => {
+                            $("#txttotaldeliverycountstatusbyyolda").text(values);
+                        });
+                        connection.on("ReceiveTotalDeliveryCountStatusHazirlaniyor", (values) => {
+                            $("#txttotaldeliverycountstatusbyhazirlaniyor").text(values);
+                        });
+                        connection.on("ReceiveTotalDeliveryCountStatusByTeslimEdildi", (value) => {
+                            $("#txttotaldeliverycountstatusbyteslimedildi").text(value);
+                        });
+                    });
+                    </script>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="alert alert-primary">Bağlantı Durumu: <strong id="constatus">  </strong></div>
+<div class="alert alert-warning">Toplam Sipariş Sayısı: <strong id="txttotaldeliverycount"></strong></div>
+<div class="alert alert-info">Yoldaki Sipariş Sayısı: <strong id="txttotaldeliverycountstatusbyyolda"></strong></div>
+<div class="alert alert-danger">Hazırlanan Sipariş: <strong id="txttotaldeliverycountstatusbyhazirlaniyor"></strong></div>
+<div class="alert alert-dark">Teslim Edilen Sipariş: <strong id="txttotaldeliverycountstatusbyteslimedildi"></strong></div>
+
+
